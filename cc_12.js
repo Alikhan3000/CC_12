@@ -10,4 +10,25 @@ function metricCard(id, title, value){
     revenueMetric.innerHTML = `<h3>${title}</h3><p>${value}</p>`;    //assigns the title and values into the card
     return revenueMetric;
 }
-dashboardID.appendChild(metricCard("revenuewCard", "Revenue", "$1000"));                       //appended the new metric card to the dashboard 
+dashboardID.appendChild(metricCard("revenueCard", "Revenue", "$1000"));                       //appended the new metric card to the dashboard 
+
+
+//dashboardID.appendChild(metricCard("revenueCard", "Revenue", "$1000"));   //created additional metric cards: revenue & profit
+dashboardID.appendChild(metricCard("expensesCard", "Expenses", "$900"));
+dashboardID.appendChild(metricCard("profitCard", "Profit", "$100"));
+
+
+//Task 2: Updating Dashboard Metrics – Working with NodeLists and Arrays
+
+const selectAll = document.querySelectorAll(".metric-card");    //used document.querySelectorAll to select all elements with the given class
+
+const selectAllArray = [...selectAll];                  //converted the result into an array using spread operator
+    selectAllArray.forEach(revenueMetric => {
+        const title = revenueMetric.querySelector("h3");    //updated each card's inner text and modified the background color
+        title.innerText += " (Updated)";
+        revenueMetric.style.backgroundColor = "red";
+
+    });
+
+
+
