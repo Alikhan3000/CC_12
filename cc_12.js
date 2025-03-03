@@ -30,5 +30,38 @@ const selectAllArray = [...selectAll];                  //converted the result i
 
     });
 
+//Task 3: Dynamic Inventory Management – Adding and Removing Items
 
+const inventory = document.getElementById("inventoryList");     //created a function that creates a new <li> element representing a product.
+
+function prodList(product){
+    const createList = document.createElement("li");
+    createList.setAttribute("class", "product-item");
+    createList.innerText = product;
+
+    createList.addEventListener("click", () => {
+        removeItem(createList)});
+
+    inventory.appendChild(createList);
+
+    function removeItem(item){
+        inventory.removeChild(item);
+    }  
+
+}
+
+//added product buttons for 3 products
+document.getElementById("addLaptop").addEventListener("click", () => {
+    prodList("Laptop");
+});
+
+
+document.getElementById("addPhone").addEventListener("click", () => {
+    prodList("Smartphone");
+});
+
+document.getElementById("Product_Button").addEventListener("click", () => {
+    prodList("Calculator Max Pro");
+});
+    
 
